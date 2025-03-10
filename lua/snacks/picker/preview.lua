@@ -29,6 +29,8 @@ function M.directory(ctx)
     local path = item.file
     local icon, icon_hl = Snacks.util.icon(path, cat, {
       fallback = ctx.picker.opts.icons.files,
+              -- color = is_dir and vim.api.nvim_get_hl(0, { name = "Directory" }).fg or nil,
+              color = is_dir and "#81A1C1" or nil, -- a nord specific over-ride, how can i make this generic?
     })
     local line = { { icon .. " ", icon_hl }, { path, hl } }
     vim.api.nvim_buf_set_extmark(ctx.buf, ns, i - 1, 0, {
